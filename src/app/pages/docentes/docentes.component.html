@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <h2>Agregar docente</h2>
+    <form (ngSubmit)="onSubmit()" #funcionarioForm="ngForm">
+      <div class="mb-3">
+        <label for="cedula" class="form-label">Cedula</label>
+        <input type="text" id="cedula" class="form-control" required [(ngModel)]="crearDocenteDTO.cedula" name="cedula" />
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" class="form-control" required [(ngModel)]="crearDocenteDTO.nombre" name="nombre" />
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" id="apellido" class="form-control" required [(ngModel)]="crearDocenteDTO.apellido" name="apellido" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electronico</label>
+        <input type="text" id="email" class="form-control" required [(ngModel)]="crearDocenteDTO.email" name="email" />
+      </div>
+      <div class="mb-3">
+        <label for="sede" class="form-label">Sede</label>
+        <input type="text" id="sede" class="form-control" required [(ngModel)]="crearDocenteDTO.sede" name="sede" />
+      </div>
+      <div class="mb-3">
+        <label for="areaConocimiento" class="form-label">Área conocimiento</label>
+        <input type="text" id="areaConocimiento" class="form-control" required [(ngModel)]="crearDocenteDTO.areaConocimiento" name="areaConocimiento" />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!funcionarioForm.form.valid">Agregar</button>
+    </form>
+    <div class="container mt-4">
+      <h2>Lista de Docentes</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Sede</th>
+            <th>Área de Conocimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of docentes">
+            <td>{{ item.codigo }}</td>
+            <td>{{ item.cedula }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.sede }}</td>
+            <td>{{ item.areaConocimiento }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

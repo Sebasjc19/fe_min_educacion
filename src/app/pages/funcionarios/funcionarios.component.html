@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <h2>Agregar Funcionario Público</h2>
+    <form (ngSubmit)="onSubmit()" #funcionarioForm="ngForm">
+      <div class="mb-3">
+        <label for="cedula" class="form-label">Cedula</label>
+        <input type="text" id="cedula" class="form-control" required [(ngModel)]="crearFuncionarioDTO.cedula" name="cedula" />
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" id="nombre" class="form-control" required [(ngModel)]="crearFuncionarioDTO.nombre" name="nombre" />
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido</label>
+        <input type="text" id="apellido" class="form-control" required [(ngModel)]="crearFuncionarioDTO.apellido" name="apellido" />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electronico</label>
+        <input type="text" id="email" class="form-control" required [(ngModel)]="crearFuncionarioDTO.email" name="email" />
+      </div>
+      <div class="mb-3">
+        <label for="sede" class="form-label">Sede</label>
+        <input type="text" id="sede" class="form-control" required [(ngModel)]="crearFuncionarioDTO.sede" name="sede" />
+      </div>
+      <div class="mb-3">
+        <label for="funcion" class="form-label">Función</label>
+        <input type="text" id="funcion" class="form-control" required [(ngModel)]="crearFuncionarioDTO.funcion" name="funcion" />
+      </div>
+      <div class="mb-3">
+        <label for="departamento" class="form-label">Departamento</label>
+        <input type="text" id="departamento" class="form-control" required [(ngModel)]="crearFuncionarioDTO.departamento" name="departamento" />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!funcionarioForm.form.valid">Agregar</button>
+    </form>
+    <div class="container mt-4">
+      <h2>Lista de Docentes</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Sede</th>
+            <th>Funcion</th>
+            <th>Departamento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of funcionarios">
+            <td>{{ item.codigo }}</td>
+            <td>{{ item.cedula }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.apellido }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.sede }}</td>
+            <td>{{ item.funcion }}</td>
+            <td>{{ item.departamento }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

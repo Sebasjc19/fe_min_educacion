@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <h2>Agregar institucion educativa</h2>
+    <form (ngSubmit)="onSubmit()" #funcionarioForm="ngForm">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Cedula</label>
+        <input type="text" id="nombre" class="form-control" required [(ngModel)]="crearInstitucionDTO.nombre" name="nombre" />
+      </div>
+      <div class="mb-3">
+        <label for="departamento" class="form-label">Nombre</label>
+        <input type="text" id="departamento" class="form-control" required [(ngModel)]="crearInstitucionDTO.departamento" name="departamento" />
+      </div>
+      <div class="mb-3">
+        <label for="ciudad" class="form-label">Apellido</label>
+        <input type="text" id="ciudad" class="form-control" required [(ngModel)]="crearInstitucionDTO.ciudad" name="ciudad" />
+      </div>
+      <div class="mb-3">
+        <label for="rector" class="form-label">Correo electronico</label>
+        <input type="text" id="rector" class="form-control" required [(ngModel)]="crearInstitucionDTO.rector" name="rector" />
+      </div>
+      <div class="mb-3">
+        <label for="cantidadEstudiantes" class="form-label">Sede</label>
+        <input type="text" id="cantidadEstudiantes" class="form-control" required [(ngModel)]="crearInstitucionDTO.cantidadEstudiantes" name="cantidadEstudiantes" />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!funcionarioForm.form.valid">Agregar</button>
+    </form>
+    <div class="container mt-4">
+      <h2>Lista de Docentes</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Departamento</th>
+            <th>Ciudad</th>
+            <th>Rector</th>
+            <th>Cantidad estudiantes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of instituciones">
+            <td>{{ item.codigo }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.departamento }}</td>
+            <td>{{ item.ciudad }}</td>
+            <td>{{ item.rector }}</td>
+            <td>{{ item.cantidadEstudiantes }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
